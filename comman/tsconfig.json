@@ -1,0 +1,103 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    // File Layout
+    "rootDir": "./src",
+    "outDir": "./dist",
+    
+    // Module Resolution & Import/Export Settings
+    "module": "esnext",
+    "target": "esnext",
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "moduleResolution": "node", // Use "node" for better npm package resolution
+    "allowSyntheticDefaultImports": true, // Allows import React from 'react'
+    "esModuleInterop": true, // Better CommonJS/ES module interop
+    // "allowImportingTsExtensions": true, // Enable only with noEmit or emitDeclarationOnly
+    "resolveJsonModule": true, // Allow importing JSON files
+    "allowArbitraryExtensions": true, // Allow importing files with any extension
+    
+    // Type Checking & Import Resolution
+    "types": [], // Start empty, add as needed
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"],
+      "~/*": ["./*"]
+    },
+    
+    // For Node.js projects, uncomment these:
+    // "lib": ["esnext"],
+    // "types": ["node"],
+    // and run: npm install -D @types/node
+    
+    // Output Settings
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": false, // Set to true if using a bundler (also enables allowImportingTsExtensions)
+    
+    // Stricter Type Checking
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitReturns": true,
+    "noImplicitOverride": true,
+    "noUncheckedSideEffectImports": true,
+    
+    // Additional Strict Checks (uncomment as needed)
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "noPropertyAccessFromIndexSignature": true,
+    
+    // Modern Features & Best Practices
+    "jsx": "react-jsx", // Modern JSX transform
+    "verbatimModuleSyntax": false, // Set to true for stricter module syntax
+    "isolatedModules": true, // Required for modern bundlers
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    
+    // Additional Useful Options
+    "removeComments": false, // Keep comments in output
+    "preserveConstEnums": true,
+    "experimentalDecorators": true, // Enable if using decorators
+    "emitDecoratorMetadata": true, // Enable if using decorators with metadata
+    "useDefineForClassFields": true, // Modern class field behavior
+    
+    // Import/Export Helpers
+    "importHelpers": true, // Use tslib helpers
+    "downlevelIteration": true // Better iteration support for older targets
+  },
+  
+  // Include/Exclude Patterns
+  "include": [
+    "src/**/*",
+    "src/**/*.json",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.d.ts",
+    "**/*.config.ts",
+    "**/*.config.js"
+  ],
+  
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "coverage",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
+  ],
+  
+  // Compiler Performance
+  "ts-node": {
+    "esm": true,
+    "compilerOptions": {
+      "module": "esnext",
+      "moduleResolution": "bundler"
+    }
+  }
+}
